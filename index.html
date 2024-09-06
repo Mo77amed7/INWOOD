@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>INFOOD</title>
+  </head>
+  <body>
+    <div class="intro">
+      <!-- <div class="overlay"></div> -->
+      <!-- start nav -->
+      <div class="container">
+        <nav class="navbar navbar-expand-lg bg-transparent">
+          <div class="container">
+            <!-- logo -->
+            <a class="navbar-brand" href="#"
+              ><img src="images/logo.png" style="width: 100px" alt="not found"
+            /></a>
+            <!-- toggle btn -->
+            <button
+              class="navbar-toggler shadow-none border-0"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasNavbar"
+              aria-controls="offcanvasNavbar"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- actions -->
+            <div
+              class="order-3 actions d-flex justify-content-center align-items-center gap-4"
+            >
+              <a class="wish" href="#"><i class="fa-solid fa-heart"></i></a>
+              <a class="cart" href="#"
+                ><i class="fa-solid fa-cart-shopping"></i
+              ></a>
+              <a class="user" href="#"
+                ><i class="fa-solid fa-circle-user"></i
+              ></a>
+            </div>
+
+            <!-- sidebar -->
+            <div
+              class="sidebar offcanvas offcanvas-end"
+              tabindex="-1"
+              id="offcanvasNavbar"
+              aria-labelledby="offcanvasNavbarLabel"
+            >
+              <!-- sidebar header -->
+              <div class="offcanvas-header border-bottom">
+                <a href="#"
+                  ><img
+                    src="images/Logo2.png"
+                    style="width: 100px"
+                    alt="not found"
+                /></a>
+                <button
+                  type="button"
+                  class="btn-close btn-close-white shadow-none"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="offcanvas-body">
+                <div class="box">
+                  <input type="text" placeholder="Search for Products" />
+                  <a href="#">
+                    <i class="fas fa-search"></i>
+                  </a>
+                </div>
+                <ul class="navbar-nav justify-content-end text-center pe-3 m-auto">
+                  <li class="nav-item mx-2">
+                    <a class="nav-link active text-center fw-bold" aria-current="page" href="#"
+                      >Home</a
+                    >
+                  </li>
+                  <li class="nav-item mx-2">
+                    <a class="nav-link text-center fw-bold" aria-current="page" href="#"
+                      >Products</a
+                    >
+                  </li>
+                  <li class="nav-item mx-2">
+                    <a class="nav-link text-center fw-bold" aria-current="page" href="#">About</a>
+                  </li>
+                  <li class="nav-item mx-2">
+                    <a class="nav-link text-center fw-bold" aria-current="page" href="#"
+                      >Contact Us</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <!-- end nav -->
+        <div class="info text-center text-md-start">
+          <div class="text">
+            <h2 class="fw-bold">Exclusive Deals For Furniture Collection</h2>
+            <p class="text-capitalize">
+              explore different categories. find the best deals
+            </p>
+          </div>
+          <a class="btn border-0 text-capitalize fw-bold" href="#" role="button"
+            >shop now</a
+          >
+        </div>
+      </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/all.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
