@@ -259,7 +259,7 @@ body {
 }
 .testimonials .testi .image img:nth-child(2){
   position: absolute;
-  left: -10px;
+  left: -8px;
   top: -50px;
   width: 100px;
 }
