@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart</title>
+    <style>
+      .cart-container {
+        width: 80%;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .cart-container h1 {
+        text-align: center;
+      }
+      .cart-container table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+      .cart-container table th,
+      table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+      }
+      .cart-container table th {
+        background-color: #4caf50;
+        color: white;
+      }
+      .cart-container .total-cost {
+        font-size: 1.5em;
+        text-align: right;
+        margin-right: 10px;
+      }
+      .cart-container .back-to-shop {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 20px;
+      }
+      .cart-container button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #dc3545;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cart-container">
+      <h1>Your Shopping Cart</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody id="cart-items">
+          <!-- Products will be dynamically added here -->
+        </tbody>
+      </table>
+      <div class="total-cost">
+        Total Cost: $<span id="total-cost">0.00</span>
+      </div>
+      <a href="1.html" class="back-to-shop">Back to Shop</a>
+      <button onclick="clearFields()">Clear</button>
+    </div>
+
+    <script>
+      // Fetch the cart from localStorage
+      const cartData = JSON.parse(localStorage.getItem("cart")) || [];
+
+      function renderCart() {
+        const cartItemsContainer = document.getElementById("cart-items");
+        const totalCostElement = document.getElementById("total-cost");
+        cartItemsContainer.innerHTML = ""; // Clear existing content
+        let totalCost = 0;
+
+        cartData.forEach((item) => {
+          const itemTotal = item.price * item.quantity;
+          totalCost += itemTotal;
+
+          const row = document.createElement("tr");
+          row.innerHTML = `
+        <td>${item.name}</td>
+        <td>$${item.price.toFixed(2)}</td>
+        <td>${item.quantity}</td>
+        <td>$${itemTotal.toFixed(2)}</td>
+      `;
+          cartItemsContainer.appendChild(row);
+        });
+
+        totalCostElement.textContent = totalCost.toFixed(2);
+      }
+
+      function clearFields() {
+        // Clear the cart from localStorage
+        localStorage.removeItem("cart");
+
+        // Clear the cart display
+        document.getElementById("cart-items").innerHTML = "";
+        document.getElementById("total-cost").textContent = "0.00";
+      }
+
+      // Render the cart when the page loads
+      renderCart();
+    </script>
+  </body>
+</html>
