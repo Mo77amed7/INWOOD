@@ -46,7 +46,7 @@ body {
 }
 .intro {
   background-image: url(../images/intro2.jpg);
-  height: 100vh;
+  height: calc(100vh - 46px);
   background-size: cover;
   background-position: center;
   position: relative;
@@ -335,3 +335,18 @@ body {
   border: none;
 }
 /* end newsletter */
+.footer {
+  padding-top: 60px;
+  background-color: var(--nine-color);
+}
+.footer .f-icons i {
+  font-size: 28px;
+}
+.footer a{
+  color: var(--primary-color);
+  transition: 0.3s ease-in-out;
+}
+.footer a:not(.f-icons a):hover {
+  padding-left: 10px;
+}
+/* end footer */
