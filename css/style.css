@@ -201,6 +201,132 @@ body {
   color: var(--primary-color);
 }
 /* end intro */
+/* start popular products */
+.popular-products .title-page {
+  text-align: center;
+  color: #3b8080;
+}
+.popular-products .carousel-container {
+  width: 95%;
+  margin: 30px auto;
+  position: relative;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: 900px 600px;
+  background-position: center;
+  transition: background-image 0.5s ease;
+  height: 600px;
+}
+.popular-products .carousel {
+  display: flex;
+  transition: transform 0.5s ease;
+  will-change: transform;
+  width: 100%;
+}
+.popular-products .product {
+  flex: 0 0 33.33%;
+  width: 33.33%;
+  margin: 0px 20px;
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: #fff;
+  text-align: center;
+  border-radius: 15px;
+}
+.popular-products .product img {
+  width: 90%;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+.popular-products .product h3 {
+  font-size: 30px;
+  margin: 10px 0;
+  color: #3b8090;
+}
+.popular-products .product p {
+  font-size: 25px;
+  margin: 30px 0;
+  color: #3b8090;
+}
+.popular-products .controls {
+  font-size: 20px;
+  position: absolute;
+  top: 75%;
+  width: 100%;
+  display: flex;
+}
+.popular-products .controls button {
+  font-size: 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  margin: 5px;
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.popular-products .controls button:hover {
+  background-color: #aaccff;
+}
+.popular-products .quantity-controls {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.popular-products .quantity-controls button {
+  padding: 5px;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  border: none;
+  background-color: #ddd;
+  cursor: pointer;
+}
+.popular-products .quantity-controls .increase {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #28a745;
+  color: white;
+  margin-top: 30px;
+  text-align: center;
+  margin-left: 10px;
+}
+.popular-products .quantity-controls .decrease {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #dc3545;
+  color: white;
+  margin-top: 30px;
+  text-align: center;
+}
+.popular-products .quantity {
+  margin-top: 35px;
+  margin-left: 10px;
+  text-align: center;
+}
+.popular-products .view-all-btn,
+.popular-products .go-to-cart {
+  display: inline-block;
+  margin: 20px 10px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+}
+.popular-products .add-to-cart {
+  background-color: #28a745;
+  color: white;
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+/* end popular products */
 /* start benefits */
 .benefits {
   background-color: var(--secondary-color);
