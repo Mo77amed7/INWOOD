@@ -12,7 +12,45 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
       rel="stylesheet"
     />
-    <title>Cart</title>
+    <title>All Products</title>
+    <style>
+      h1 {
+        text-align: center;
+        color: #20a79e;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+      th,
+      td {
+        border: 1px solid #20a79e;
+        padding: 8px;
+        text-align: center;
+      }
+      th {
+        background-color: #20a79e;
+        color: white;
+      }
+      img {
+        width: 100px;
+        height: auto;
+        border-radius: 5px;
+      }
+      .back-to-shop {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-left: 45%;
+        background-color: #20a79e;
+        color: white;
+        text-align: center;
+        align-content: center;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 20px;
+      }
+    </style>
   </head>
   <body>
     <div class="socials py-2">
@@ -37,7 +75,7 @@
     <nav class="navbar navbar-expand-lg bg-transparent">
       <div class="container">
         <!-- logo -->
-        <a class="navbar-brand" href="#"
+        <a class="navbar-brand" href="home.html"
           ><img src="images/logo.png" style="width: 100px" alt="not found"
         /></a>
         <!-- toggle btn -->
@@ -95,7 +133,7 @@
                 <a
                   class="nav-link active text-center fw-bold"
                   aria-current="page"
-                  href="#"
+                  href="home.html"
                   >Home</a
                 >
               </li>
@@ -111,7 +149,7 @@
                 <a
                   class="nav-link text-center fw-bold"
                   aria-current="page"
-                  href="#"
+                  href="about.html"
                   >About</a
                 >
               </li>
@@ -119,7 +157,7 @@
                 <a
                   class="nav-link text-center fw-bold"
                   aria-current="page"
-                  href="#"
+                  href="contact.html"
                   >Contact Us</a
                 >
               </li>
@@ -129,28 +167,189 @@
       </div>
     </nav>
     <!-- end nav -->
-
-    <div class="cart-container">
-      <h1>Your Shopping Cart</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Total</th>
-          </tr>
-        </thead>
-        <tbody id="cart-items">
-          <!-- Products will be dynamically added here -->
-        </tbody>
-      </table>
-      <div class="total-cost">
-        Total Cost: $<span id="total-cost">0.00</span>
-      </div>
-      <a href="home.html" class="back-to-shop">Back to Shop</a>
-      <button onclick="clearFields()">Clear</button>
-    </div>
+    <!-- start categories -->
+    <h1>All Products</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Product 1 -->
+        <tr>
+          <td>
+            <img
+              src="file:///C:/Users/sayed%20net/Desktop/abu%20zaid%20salah_files/product.html/img/ch1.png"
+              alt="Product 1"
+              style="width: 150px; height: 150px"
+            />
+          </td>
+          <td>Product 1</td>
+          <td>$10.00</td>
+        </tr>
+        <!-- Product 2 -->
+        <tr>
+          <td>
+            <img
+              src="file:///C:/Users/sayed%20net/Desktop/abu%20zaid%20salah_files/product.html/img/ch2.png"
+              alt="Product 2"
+              style="width: 150px; height: 150px"
+            />
+          </td>
+          <td>Product 2</td>
+          <td>$20.00</td>
+        </tr>
+        <!-- Product 3 -->
+        <tr>
+          <td>
+            <img
+              src="file:///C:/Users/sayed%20net/Desktop/abu%20zaid%20salah_files/product.html/img/ch3.png"
+              alt="Product 3"
+              style="width: 150px; height: 150px"
+            />
+          </td>
+          <td>Product 3</td>
+          <td>$30.00</td>
+        </tr>
+        <!-- Product 4 -->
+        <tr>
+          <td>
+            <img
+              src="file:///C:/Users/sayed%20net/Desktop/abu%20zaid%20salah_files/product.html/img/ch4.png"
+              alt="Product 4"
+              style="width: 150px; height: 150px"
+            />
+          </td>
+          <td>Product 4</td>
+          <td>$40.00</td>
+        </tr>
+        <!-- Product 5 -->
+        <tr>
+          <td>
+            <img
+              src="file:///C:/Users/sayed%20net/Desktop/abu%20zaid%20salah_files/product.html/img/ta1.png"
+              alt="Product 5"
+              style="width: 150px; height: 150px"
+            />
+          </td>
+          <td>Product 5</td>
+          <td>$50.00</td>
+        </tr>
+        <!-- Product 6 -->
+        <tr>
+          <td>
+            <img
+              src="file:///C:/Users/sayed%20net/Desktop/abu%20zaid%20salah_files/product.html/img/ta2.png"
+              alt="Product 6"
+              style="width: 150px; height: 150px"
+            />
+          </td>
+          <td>Product 6</td>
+          <td>$60.00</td>
+        </tr>
+        <!-- Product 7 -->
+        <tr>
+          <td>
+            <img
+              src="file:///C:/Users/sayed%20net/Desktop/abu%20zaid%20salah_files/product.html/img/ta3.png"
+              alt="Product 7"
+              style="width: 150px; height: 150px"
+            />
+          </td>
+          <td>Product 7</td>
+          <td>$70.00</td>
+        </tr>
+        <!-- Product 8 -->
+        <tr>
+          <td>
+            <img
+              src="file:///C:/Users/sayed%20net/Desktop/abu%20zaid%20salah_files/product.html/img/ta4.png"
+              alt="Product 8"
+              style="width: 150px; height: 150px"
+            />
+          </td>
+          <td>Product 8</td>
+          <td>$80.00</td>
+        </tr>
+        <!-- Product 9 -->
+        <tr>
+          <td>
+            <img
+              src="file:///C:/Users/sayed%20net/Desktop/abu%20zaid%20salah_files/product.html/img/ta5.png"
+              alt="Product 9"
+              style="width: 150px; height: 150px"
+            />
+          </td>
+          <td>Product 9</td>
+          <td>$90.00</td>
+        </tr>
+        <!-- Product 10 -->
+        <tr>
+          <td>
+            <img
+              src="file:///C:/Users/sayed%20net/Desktop/abu%20zaid%20salah_files/product.html/img/ta6.png"
+              alt="Product 10"
+              style="width: 150px; height: 150px"
+            />
+          </td>
+          <td>Product 10</td>
+          <td>$100.00</td>
+        </tr>
+        <!-- Product 11 -->
+        <tr>
+          <td>
+            <img
+              src="file:///C:/Users/sayed%20net/Desktop/abu%20zaid%20salah_files/product.html/img/ta7.png"
+              alt="Product 11"
+              style="width: 150px; height: 150px"
+            />
+          </td>
+          <td>Product 11</td>
+          <td>$110.00</td>
+        </tr>
+        <!-- Product 12 -->
+        <tr>
+          <td>
+            <img
+              src="file:///C:/Users/sayed%20net/Desktop/abu%20zaid%20salah_files/product.html/img/ta8.png"
+              alt="Product 12"
+              style="width: 150px; height: 150px"
+            />
+          </td>
+          <td>Product 12</td>
+          <td>$120.00</td>
+        </tr>
+        <!-- Product 13 -->
+        <tr>
+          <td>
+            <img
+              src="file:///C:/Users/sayed%20net/Desktop/abu%20zaid%20salah_files/product.html/img/ta9.png"
+              alt="Product 13"
+              style="width: 150px; height: 150px"
+            />
+          </td>
+          <td>Product 13</td>
+          <td>$130.00</td>
+        </tr>
+        <!-- Product 14 -->
+        <tr>
+          <td>
+            <img
+              src="file:///C:/Users/sayed%20net/Desktop/abu%20zaid%20salah_files/product.html/img/li.png"
+              alt="Product 14"
+              style="width: 150px; height: 150px"
+            />
+          </td>
+          <td>Product 14</td>
+          <td>$140.00</td>
+        </tr>
+      </tbody>
+    </table>
+    <a href="home.html" class="back-to-shop">Back to Shop</a>
+    <!-- end categories -->
     <!-- start footer -->
     <div class="footer">
       <div class="container">
@@ -252,38 +451,6 @@
       </div>
     </div>
     <!-- end footer -->
-    <script>
-      // Fetch the cart from localStorage
-      const cartData = JSON.parse(localStorage.getItem("cart")) || [];
-      function renderCart() {
-        const cartItemsContainer = document.getElementById("cart-items");
-        const totalCostElement = document.getElementById("total-cost");
-        cartItemsContainer.innerHTML = ""; // Clear existing content
-        let totalCost = 0;
-        cartData.forEach((item) => {
-          const itemTotal = item.price * item.quantity;
-          totalCost += itemTotal;
-          const row = document.createElement("tr");
-          row.innerHTML = `
-        <td>${item.name}</td>
-        <td>$${item.price.toFixed(2)}</td>
-        <td>${item.quantity}</td>
-        <td>$${itemTotal.toFixed(2)}</td>
-      `;
-          cartItemsContainer.appendChild(row);
-        });
-        totalCostElement.textContent = totalCost.toFixed(2);
-      }
-      function clearFields() {
-        // Clear the cart from localStorage
-        localStorage.removeItem("cart");
-        // Clear the cart display
-        document.getElementById("cart-items").innerHTML = "";
-        document.getElementById("total-cost").textContent = "0.00";
-      }
-      // Render the cart when the page loads
-      renderCart();
-    </script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/all.min.js"></script>
     <script src="js/main.js"></script>
