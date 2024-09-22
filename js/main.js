@@ -1,32 +1,4 @@
-// popular products
-// const carousel = document.querySelector(".carousel");
-// const carouselContainer = document.getElementById("carouselContainer");
-// const prevBtn = document.querySelector(".prev");
-// const nextBtn = document.querySelector(".next");
-// let currentSlide = 0;
-// const totalProducts = 14; // Total number of products
-// const productsPerSlide = 3; // Number of products per slide
-// const slideWidth = 100 / productsPerSlide;
 
-// function updateCarouselPosition() {
-//   carousel.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
-// }
-
-// nextBtn.addEventListener("click", () => {
-//   currentSlide++;
-//   if (currentSlide >= totalProducts) {
-//     currentSlide = 0;
-//   }
-//   updateCarouselPosition();
-// });
-
-// prevBtn.addEventListener("click", () => {
-//   currentSlide--;
-//   if (currentSlide < 0) {
-//     currentSlide = totalProducts - 1;
-//   }
-//   updateCarouselPosition();
-// });
 
 document.querySelectorAll(".increase").forEach((button) => {
   button.addEventListener("click", (event) => {
@@ -76,13 +48,7 @@ document.querySelectorAll(".add-to-cart").forEach((button) => {
     }
   });
 });
-// changing background src''//
-// document.querySelectorAll(".product").forEach((product) => {
-//   product.addEventListener("click", (event) => {
-//     const img = product.querySelector("img").src;
-//     carouselContainer.style.backgroundImage = `url(${img})`;
-//   });
-// });
+
 var swiper = new Swiper(".mySwiper-products", {
   centeredSlides: false,
   spaceBetween: 30,
@@ -113,20 +79,15 @@ var swiper = new Swiper(".mySwiper-products", {
 });
 
 // testimonials users
-var xhr = new XMLHttpRequest();
-xhr.open("GET", "json/testimonials.json");
-xhr.send();
-xhr.addEventListener("readystatechange", function () {
-  if (xhr.readyState === 4 && xhr.status === 200) {
-    console.log(xhr.responseText);
-    var testis = JSON.parse(xhr.responseText);
+fetch("js/testimonials.json").then((result)=> {
+  let myData = result.json();
+  return myData;}).then((testis)=> {
     let testiImg = document.querySelectorAll(".testimonials .image");
     for (t = 0; t < testiImg.length; t++) {
       let image = testiImg[t];
       image.innerHTML += `<img src= "${testis[t].img}" />`;
     }
-  }
-});
+  })
 
 // swiper library
 var swiper = new Swiper(".testiswiper ", {
