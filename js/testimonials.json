@@ -1,0 +1,32 @@
+[
+  {
+    "img": "images/testi1.jpg",
+    "review": "lorem",
+    "name": "Mohamed",
+    "job": "CEO of Google"
+  },
+  {
+    "img": "images/testi2.jpg",
+    "review": "lorem",
+    "name": "Abou Zeid",
+    "job": "CEO of Google"
+  },
+  {
+    "img": "images/testi3.jpg",
+    "review": "lorem",
+    "name": "Abdulrahman",
+    "job": "CEO of Google"
+  },
+  {
+    "img": "images/testi4.jpg",
+    "review": "lorem",
+    "name": "Ibraheem",
+    "job": "CEO of Google"
+  },
+  {
+    "img": "images/testi5.jpg",
+    "review": "lorem",
+    "name": "Youssef",
+    "job": "CEO of Google"
+  }
+]
