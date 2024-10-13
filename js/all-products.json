@@ -1,0 +1,182 @@
+{
+  "bedRooms": [
+    {
+      "img": "images/all-products/bedroom/bedroom01.jpg",
+      "disc": "10%",
+      "title": "bedroom1",
+      "price": "$123"
+    },
+    {
+      "img": "images/all-products/bedroom/bedroom02.jpg",
+      "disc": "15%",
+      "title": "bedroom2",
+      "price": "$555"
+    },
+    {
+      "img": "images/all-products/bedroom/bedroom03.jpg",
+      "disc": "20%",
+      "title": "bedroom3",
+      "price": "$199"
+    },
+    {
+      "img": "images/all-products/bedroom/bedroom04.jpg",
+      "disc": "30%",
+      "title": "bedroom4",
+      "price": "$103"
+    },
+    {
+      "img": "images/all-products/bedroom/bedroom05.jpg",
+      "disc": "5%",
+      "title": "bedroom5",
+      "price": "$1283"
+    }
+  ],
+  "diningRooms": [
+    {
+      "img": "images/all-products/diningroom/din-room01.jpg",
+      "disc": "10%",
+      "title": "diningroom1",
+      "price": "$123"
+    },
+    {
+      "img": "images/all-products/diningroom/din-room02.jpg",
+      "disc": "15%",
+      "title": "diningroom2",
+      "price": "$555"
+    },
+    {
+      "img": "images/all-products/diningroom/din-room03.jpg",
+      "disc": "20%",
+      "title": "diningroom3",
+      "price": "$199"
+    },
+    {
+      "img": "images/all-products/diningroom/din-room04.jpg",
+      "disc": "30%",
+      "title": "diningroom4",
+      "price": "$103"
+    },
+    {
+      "img": "images/all-products/diningroom/din-room05.jpg",
+      "disc": "5%",
+      "title": "diningroom5",
+      "price": "$1283"
+    }
+  ],
+  "workspaceRooms": [
+    {
+      "title": "Office Desk",
+      "img": "images/all-products/workspace/w-space01.jpg",
+      "price": 199.99,
+      "disc": "10%"
+    },
+    {
+      "title": "Ergonomic Chair",
+      "img": "images/all-products/workspace/w-space02.jpg",
+      "price": 129.99,
+      "disc": "10%"
+    },
+    {
+      "title": "Bookshelf",
+      "img": "images/all-products/workspace/w-space03.jpg",
+      "price": 179.99,
+      "disc": "10%"
+    }
+  ],
+  "studyRooms": [
+    {
+      "img": "images/all-products/diningroom/din-room01.jpg",
+      "disc": "10%",
+      "title": "diningroom1",
+      "price": "$123"
+    },
+    {
+      "img": "images/all-products/diningroom/din-room02.jpg",
+      "disc": "15%",
+      "title": "diningroom2",
+      "price": "$555"
+    },
+    {
+      "img": "images/all-products/diningroom/din-room03.jpg",
+      "disc": "20%",
+      "title": "diningroom3",
+      "price": "$199"
+    },
+    {
+      "img": "images/all-products/diningroom/din-room04.jpg",
+      "disc": "30%",
+      "title": "diningroom4",
+      "price": "$103"
+    },
+    {
+      "img": "images/all-products/diningroom/din-room05.jpg",
+      "disc": "5%",
+      "title": "diningroom5",
+      "price": "$1283"
+    }
+  ],
+  "kitchenRooms": [
+    {
+      "img": "images/all-products/diningroom/din-room01.jpg",
+      "disc": "10%",
+      "title": "diningroom1",
+      "price": "$123"
+    },
+    {
+      "img": "images/all-products/diningroom/din-room02.jpg",
+      "disc": "15%",
+      "title": "diningroom2",
+      "price": "$555"
+    },
+    {
+      "img": "images/all-products/diningroom/din-room03.jpg",
+      "disc": "20%",
+      "title": "diningroom3",
+      "price": "$199"
+    },
+    {
+      "img": "images/all-products/diningroom/din-room04.jpg",
+      "disc": "30%",
+      "title": "diningroom4",
+      "price": "$103"
+    },
+    {
+      "img": "images/all-products/diningroom/din-room05.jpg",
+      "disc": "5%",
+      "title": "diningroom5",
+      "price": "$1283"
+    }
+  ],
+  "livingRooms": [
+    {
+      "img": "images/all-products/diningroom/din-room01.jpg",
+      "disc": "10%",
+      "title": "diningroom1",
+      "price": "$123"
+    },
+    {
+      "img": "images/all-products/diningroom/din-room02.jpg",
+      "disc": "15%",
+      "title": "diningroom2",
+      "price": "$555"
+    },
+    {
+      "img": "images/all-products/diningroom/din-room03.jpg",
+      "disc": "20%",
+      "title": "diningroom3",
+      "price": "$199"
+    },
+    {
+      "img": "images/all-products/diningroom/din-room04.jpg",
+      "disc": "30%",
+      "title": "diningroom4",
+      "price": "$103"
+    },
+    {
+      "img": "images/all-products/diningroom/din-room05.jpg",
+      "disc": "5%",
+      "title": "diningroom5",
+      "price": "$1283"
+    }
+  ]
+}
