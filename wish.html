@@ -58,6 +58,7 @@
           <a class="wish position-relative" href="wish.html"
             ><i class="fa-solid fa-heart"></i>
             <span
+              id="favorite-count"
               class="position-absolute wish-badge top-0 start-100 translate-middle badge rounded-pill bg-danger"
             >
               0
@@ -66,6 +67,7 @@
           <a class="cart position-relative" href="cart.html"
             ><i class="fa-solid fa-cart-shopping"></i>
             <span
+              id="cart-count"
               class="position-absolute cart-badge top-0 start-100 translate-middle badge rounded-pill bg-danger"
             >
               0
@@ -184,20 +186,17 @@
             <thead>
               <tr>
                 <th>Product</th>
-                <th>Pecie Name</th>
-                <th>Information</th>
+                <th>Name</th>
                 <th>Price</th>
+                <th>Information</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody id="FavoriteContainer">
               <!-- Products will be dynamically added here -->
             </tbody>
           </table>
-          <div class="total-cost">
-            Total Cost: $<span id="total-cost">0.00</span>
-          </div>
           <a href="index.html" class="back-to-shop">Back to Gallery</a>
-          <button onclick="clearFields()">Clear</button>
         </div>
       </div>
     </div>
@@ -304,47 +303,10 @@
       </div>
     </div>
     <!-- end footer -->
-    <script>
-      function renderFavo() {
-        const favoItemsContainer = document.getElementById("FavoriteContainer");
-        const totalCostElement = document.getElementById("total-cost");
-        favoItemsContainer.innerHTML = ""; // Clear existing content
-        let totalCost = 0;
-
-        // Fetch the favorite from localStorage
-        const Favorite = JSON.parse(localStorage.getItem("Favorite")) || [];
-
-        Favorite.forEach((item) => {
-          const itemTotal = parseFloat(item.price.replace("$", ""));
-          totalCost += itemTotal;
-
-          const row = document.createElement("tr");
-          row.innerHTML = `
-            <td><img src="${item.img}" alt="${item.name}" style="width:100px;"/></td>
-            <td>${item.name}</td>
-            <td>${item.desc}</td> <!-- Short product description -->
-            <td>${item.price}</td>
-          `;
-          favoItemsContainer.appendChild(row);
-        });
-
-        totalCostElement.textContent = totalCost.toFixed(2);
-      }
-
-      // Call the function to render favorites on page load
-      renderFavo();
-
-      function clearFields() {
-        // Clear the favorite products from localStorage
-        localStorage.removeItem("Favorite");
-
-        // Clear the favorite products display
-        document.getElementById("FavoriteContainer").innerHTML = "";
-        document.getElementById("total-cost").textContent = "0.00";
-      }
-    </script>
+    <script></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/all.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/wish.js"></script>
   </body>
 </html>
