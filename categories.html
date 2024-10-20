@@ -58,6 +58,7 @@
           <a class="wish position-relative" href="wish.html"
             ><i class="fa-solid fa-heart"></i>
             <span
+              id="favorite-count"
               class="position-absolute wish-badge top-0 start-100 translate-middle badge rounded-pill bg-danger"
             >
               0
@@ -66,6 +67,7 @@
           <a class="cart position-relative" href="cart.html"
             ><i class="fa-solid fa-cart-shopping"></i>
             <span
+              id="cart-count"
               class="position-absolute cart-badge top-0 start-100 translate-middle badge rounded-pill bg-danger"
             >
               0
@@ -128,9 +130,7 @@
                     >
                   </li>
                   <li>
-                    <a class="dropdown-item" href="bed-room.html"
-                      >Bed Rooms</a
-                    >
+                    <a class="dropdown-item" href="bed-room.html">Bed Rooms</a>
                   </li>
                   <li>
                     <a class="dropdown-item" href="dining-room.html"
@@ -180,6 +180,22 @@
 
     <!-- start categories -->
     <div class="all-products bg-white py-5">
+      <div
+        id="alert-box"
+        style="
+          display: none;
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: rgb(5, 171, 190);
+          padding: 10px;
+          border-radius: 5px;
+          z-index: 9999;
+        "
+      >
+        <span id="alert-message"></span>
+      </div>
       <div class="container">
         <div class="image">
           <img
