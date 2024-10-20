@@ -58,6 +58,7 @@
           <a class="wish position-relative" href="wish.html"
             ><i class="fa-solid fa-heart"></i>
             <span
+              id="favorite-count"
               class="position-absolute wish-badge top-0 start-100 translate-middle badge rounded-pill bg-danger"
             >
               0
@@ -66,6 +67,7 @@
           <a class="cart position-relative" href="cart.html"
             ><i class="fa-solid fa-cart-shopping"></i>
             <span
+              id="cart-count"
               class="position-absolute cart-badge top-0 start-100 translate-middle badge rounded-pill bg-danger"
             >
               0
@@ -171,117 +173,87 @@
         </div>
       </div>
     </nav>
+    <!-- end nav  -->
     <button id="back-to-top-btn"><i class="fas fa-arrow-up"></i></button>
-    <!-- end nav -->
-    <!-- start contact -->
-    <div class="contact">
-      <section class="contact-banner">
-        <div class="container">
-          <h1>Get in touch with us</h1>
-          <p>
-            We are at your service anytime, through our diverse channels: phone,
-            email, and social media. Don't hesitate to contact us. You're always
-            our biggest concern.
-          </p>
-        </div>
+    <!-- back to top button  -->
+    <div class="contact2">
+      <section class="contact-us-main-img">
+        <button>call us</button>
       </section>
-
-      <!-- Back to Top Button -->
-
-      <section class="contact-section">
+      <section class="contact-us">
         <div class="container">
-          <h1>Contact Us</h1>
-          <p>
-            We'd love to hear from you! Whether you have a question about our
-            services or need support, feel free to reach out to us.
-          </p>
-
-          <div class="contact-info">
-            <div class="container">
-              <div class="row">
-                <div class="col-12 col-lg-6">
-                  <div class="contact-details">
-                    <h3>Our Office</h3>
-                    <p>
-                      <strong>Address:</strong> 1234 Modern St, Minia, Egypt
-                    </p>
-                    <p>
-                      <strong>Phone:</strong>
-                      <a href="tel:+201234567890">+20 123 456 7890</a>
-                    </p>
-                    <p>
-                      <strong>Email:</strong>
-                      <a href="mailto:info@smartfurniture.com"
-                        >info@inwood.com</a
-                      >
-                    </p>
-                    <p><strong>Business Hours:</strong> Mon - Fri: 9am - 6pm</p>
-                  </div>
-                </div>
-                <div class="col-12 col-lg-6">
-                  <div class="contact-form">
-                    <h3>Get in Touch</h3>
-                    <form id="contactForm" action="#" method="post">
-                      <div class="form-group">
-                        <label for="name">Name</label>
-                        <input
-                          type="text"
-                          id="name"
-                          name="name"
-                          placeholder="Your Name"
-                          required
-                        />
-                      </div>
-                      <div class="form-group">
-                        <label for="email">Email</label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          placeholder="Your Email"
-                          required
-                        />
-                      </div>
-                      <div class="form-group">
-                        <label for="phone">Phone</label>
-                        <input
-                          type="tel"
-                          id="phone"
-                          name="phone"
-                          placeholder="Your Phone Number"
-                          required
-                        />
-                      </div>
-                      <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea
-                          id="message"
-                          name="message"
-                          rows="5"
-                          placeholder="Your Message"
-                          required
-                        ></textarea>
-                      </div>
-                      <button type="submit">Send Message</button>
-                    </form>
-                  </div>
-                </div>
-              </div>
+          <div
+            class="row row-cols-1 row-cols-md-2 row-cols-lg-3 flex-lg-nowrap gap-3"
+          >
+            <div class="contact-item col">
+              <i class="fa-solid fa-location-dot icon"></i>
+              <h3>Our Location</h3>
+              <h4>(800) 123 456 789 / (800) 123 456</h4>
+              <span>info@inwood.com</span>
+            </div>
+            <div class="contact-item col">
+              <i class="fa-solid fa-mobile-screen icon"></i>
+              <h3>Contact us Anytime</h3>
+              <h4>Mobile: 012 345 678</h4>
+              <span>Fax: 123 456 789</span>
+            </div>
+            <div class="contact-item col">
+              <i class="fa-regular fa-envelope icon"></i>
+              <h3>Write Some Words</h3>
+              <h4>Support24/7@inwood.com</h4>
+              <span>info@inwood.com</span>
             </div>
           </div>
+        </div>
+      </section>
+      <section class="contact-form">
+        <div class="container">
+          <h2 class="text-center">Get In Touch</h2>
 
-          <div class="map">
-            <h3>Visit Us</h3>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509911!2d144.95373531565414!3d-37.81720944202195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577db2a14e9ab40!2sVictoria%20State%20Library!5e0!3m2!1sen!2sus!4v1601528727620!5m2!1sen!2sus"
-              width="100%"
-              height="450"
-              style="border: 0"
-              allowfullscreen=""
-              aria-hidden="false"
-              tabindex="0"
-            ></iframe>
+          <input
+            class="form-control mb-3 bg-transparent"
+            type="text"
+            placeholder="Name"
+            id="usName"
+          />
+          <div class="valid-feedback" id="vaild">Looks good!</div>
+          <div class="invalid-feedback" id="invaild">
+            Please check your Name.
           </div>
+
+          <input
+            class="form-control mb-3 bg-transparent"
+            type="email"
+            placeholder="Email"
+            id="email"
+          />
+
+          <input
+            class="form-control mb-3 bg-transparent"
+            type="text"
+            placeholder="Subject"
+            id="subject"
+          />
+          <textarea
+            placeholder="message"
+            class="form-control mb-3"
+            name=""
+            id="mess"
+            cols="30"
+            rows="8"
+          ></textarea>
+          <button id="send">send a message</button>
+        </div>
+        <div class="map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d28149.50200227151!2d30.727668!3d28.1255443!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1727556925719!5m2!1sen!2seg"
+            width="100%"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
       </section>
     </div>
@@ -391,5 +363,6 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/all.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/contactjs.js"></script>
   </body>
 </html>
