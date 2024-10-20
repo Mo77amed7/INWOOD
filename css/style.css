@@ -212,7 +212,6 @@ nav .navbar-nav .nav-link {
   color: var(--primary-color);
 }
 .intro .info .text h2 {
-
 }
 @media (min-width: 992px) {
   .intro .info .text h2 {
@@ -269,7 +268,7 @@ nav .navbar-nav .nav-link {
   text-align: center;
   border-radius: 10px;
 }
-.wish-icon {
+.add-to-favorites {
   position: absolute;
   top: 10px;
   width: 30px;
@@ -281,11 +280,12 @@ nav .navbar-nav .nav-link {
   text-align: center;
   line-height: 30px;
   cursor: pointer;
+  border: 0px;
 }
-.wish-icon svg {
+.add-to-favorites svg {
   color: var(--primary-color);
 }
-.wish-icon:hover svg {
+.add-to-favorites:hover svg {
   color: red;
 }
 .popular-products .product img {
@@ -737,8 +737,116 @@ nav .navbar-nav .nav-link {
 /* end footer */
 
 /* start cart */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart img {
+  max-width: 100px; /* Ensures images don't get too large */
+  height: auto;
+}
+
+/* Responsive Table for Tablets and Smaller */
+@media only screen and (max-width: 768px) {
+  table, thead, tbody, th, td, tr {
+      display: block; /* Stack the table rows */
+  }
+
+  thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+  }
+
+  tr {
+      margin: 0 0 1rem 0;
+      border: 1px solid #ddd;
+      padding: 10px;
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  td {
+      /* Add a label for each column */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 5px;
+      border: none;
+      border-bottom: 1px solid #ddd;
+  }
+
+  td:last-child {
+      border-bottom: none;
+  }
+
+  .cart img {
+      max-width: 70px; /* Adjust image size for mobile */
+  }
+}
+
+/* For Very Small Mobile Devices (max-width: 480px) */
+@media only screen and (max-width: 480px) {
+  td {
+      padding: 8px 3px;
+  }
+
+  .cart img {
+      max-width: 50px; /* Further reduce image size for small devices */
+  }
+}
+
+/* Horizontal Scrolling for Tablets */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  table {
+      /* display: block; */
+      overflow-x: auto; /* Enable horizontal scrolling */
+  }
+
+  th, td {
+      white-space: nowrap; /* Prevent table data from wrapping */
+  }
+}
+
+/* General Styling (Optional) */
+table {
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #f8f8f8;
+}
+
+th {
+
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+td {
+  font-size: 14px;
+}
+
+.cart button {
+  padding: 8px 12px;
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.cart button:hover {
+  background-color: #c9302c;
+}
 .cart .cart-container {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   background-color: #fff;
   padding: 20px;
@@ -749,17 +857,7 @@ nav .navbar-nav .nav-link {
   text-align: center;
   color: var(--primary-color);
 }
-.cart .cart-container table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-}
-.cart .cart-container table th,
-table td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: center;
-}
+
 .cart .cart-container table th {
   background-color: var(--primary-color);
   color: white;
@@ -887,155 +985,12 @@ table td {
   margin: 25px 0px 35px;
 }
 
-/* end account */
-/* /////////////////////////////////////////////////////////////////// */
-/* start contact  */
 
-/* Top Header */
-
-.contact .contact-info {
-  display: flex;
-  align-items: center;
-}
-
-.contact .contact-info i {
-  margin-right: 5px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-bottom: 40px;
-}
-
-.contact .contact-info span {
-  margin-right: 15px;
-  font-size: 1rem;
-}
-
-/* Contact Banner */
-.contact .contact-banner {
-  background-color: var(--primary-color);
-  text-align: center;
-  padding: 50px 0;
-  color: white;
-}
-
-.contact .contact-banner h1 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-}
-
-.contact .contact-banner p {
-  font-size: 1.2rem;
-}
-
-.contact .contact-section {
-  padding: 50px 0;
-  background-color: #fff;
-}
-
-.contact .contact-section h1 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: var(--primary-color);
-}
-
-.contact .contact-section p {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 1.2rem;
-}
-
-.contact .contact-details,
-.contact .contact-form {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-}
-
-.contact .contact-info h3 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-}
-
-.contact .contact-details p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 10px;
-}
-
-.contact .contact-info a {
-  color: var(--primary-color);
-  text-decoration: none;
-}
-
-.contact .contact-info a:hover {
-  text-decoration: underline;
-}
-
-.contact .contact-form .form-group {
-  margin-bottom: 20px;
-}
-
-.contact .contact-form label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: 600;
-}
-
-.contact .contact-form input,
-.contact .contact-form textarea {
-  width: 100%;
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  outline: none;
-}
-
-.contact .contact-form input:focus,
-.contact .contact-form textarea:focus {
-  border-color: var(--primary-color);
-}
-
-.contact .contact-section button {
-  display: inline-block;
-  background-color: var(--primary-color);
-  color: white;
-  padding: 10px 20px;
-  font-size: 1.2rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.contact .contact-section button:hover {
-  background-color: var(--seven-color);
-}
-
-.contact .map {
-  text-align: center;
-  color: var(--primary-color);
-}
-
-@media (max-width: 768px) {
-  .contact .contact-info {
-    flex-direction: column;
-  }
-
-  .contact .contact-details,
-  .contact .contact-form {
-    width: 100%;
-  }
-}
 /* end contact  */
 /* ****************************************************************************************** */
 
 /* start all products */
-.all-products {
-}
+
 .all-products .container > .image {
   border-radius: 10px;
   overflow: hidden;
@@ -1070,10 +1025,7 @@ table td {
   border-radius: 20px;
   color: white;
 }
-.all-products .image {
-}
-.all-products .image img {
-}
+
 .all-products .desc {
   background-color: var(--primary-color);
   color: white;
@@ -1082,10 +1034,7 @@ table td {
   justify-content: space-between;
   padding: 10px;
 }
-.all-products .desc .info {
-}
-.all-products .desc .info h3 {
-}
+
 .all-products .desc .info p {
   font-size: 20px;
 }
@@ -1120,7 +1069,6 @@ table td {
   margin-bottom: 20px;
 }
 .wish .favo-container {
-  width: 80%;
   margin: 0 auto;
   padding: 20px;
   border-radius: 8px;
@@ -1167,3 +1115,332 @@ table td {
   margin-top: 20px;
 }
 /* end wish */
+/* start about*/
+
+.about-container .about-content {
+  overflow: hidden;
+  background-image: url(../images/about.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.about-container .about-content .about-item {
+  width: 100%;
+  text-align: left;
+}
+
+.about-content .about-item .about-text {
+  margin-bottom: 70px;
+  padding: 110px 40px 0 30px;
+  font-size: 20px;
+}
+
+.about-content .about-item .about-text p {
+  color: #c9c3c3;
+  font-weight: 900;
+  line-height: 1.5;
+  width: 60%;
+}
+
+.about-item .about-text h2 {
+  margin-bottom: 22px;
+  font-weight: 800;
+  color: #292828;
+  font-size: 35px;
+  text-align: left;
+}
+
+.about-container .about-content .about-item a {
+  text-decoration: none;
+  color: white;
+  border-radius: 10px;
+  background-color: #07484a;
+  display: inline-block;
+  padding: auto;
+  margin-bottom: 20px;
+  margin-top: 15px;
+  padding: 10px;
+  transition: 0.3s ease;
+  font-family: "open sans";
+  border: 1px solid var(--primary-color) !important;
+  font-weight: 900;
+}
+
+.about-container .about-content .about-item a:hover {
+  background-color: transparent;
+  color: #032b2c;
+}
+
+/*end about*/
+/* start contact */
+.contact2 .contact-us.container {
+  margin: auto;
+  width: 80%;
+  max-width: 1200px;
+}
+.contact2 .mg {
+  margin: 0 5%;
+}
+.contact2 .contact-us-main-img {
+  background: linear-gradient(
+      to right bottom,
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.1)
+    ),
+    url(../images/intro.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  width: 100%;
+  height: 380px;
+  position: relative;
+}
+.contact2 .contact-us-main-img button {
+  background-color: #07484a;
+  color: #fff;
+  padding: 8px 32px;
+  border: none;
+  border-radius: 16px;
+  font-size: 30px;
+  text-align: center;
+  position: absolute;
+  top: 70%;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.contact2 .contact-us {
+  overflow: hidden;
+  margin-top: 50px;
+  text-align: center;
+}
+.contact2 .contact-item {
+  border: 2px solid #07484a;
+  padding: 40px 20px;
+  margin-bottom: 50px;
+}
+.contact2 .contact-item .icon {
+  font-size: 50px;
+  color: #07484a;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+  border: 1px solid #07484a;
+  border-radius: 100%;
+  padding: 12px;
+}
+.contact2 .contact-item:hover .icon {
+  color: #fff;
+  background-color: #07484a;
+}
+.contact2 .contact-item h3 {
+  margin: 5px 0;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.contact2 .contact-item h4,
+.contact2 span {
+  font-size: 15px;
+  color: #999;
+  padding-top: 5px;
+}
+
+.contact2 .contact-form h2 {
+  margin: 20px 0;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+  color: #07484a;
+}
+.contact2 .contact-form .inputs input {
+  display: inline-block;
+  width: 40%;
+  padding: 10px;
+}
+.contact2 .contact-form .sub input {
+  padding: 10px;
+  width: 80%;
+  margin: 20px 0;
+}
+.contact2 .contact-form .mess textarea {
+  padding: 5px;
+  width: 80%;
+  margin-bottom: 15px;
+}
+.contact2 .contact-form textarea {
+  color: #797676;
+}
+.contact2 .contact-form input:focus,
+textarea:focus {
+  outline: 1px solid #07484a;
+  border: none;
+}
+.contact2 .contact-form button {
+  text-transform: uppercase;
+  background-color: #07484a;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+.contact2 .contact-form button:hover {
+  background-color: #999;
+  cursor: pointer;
+  color: #333;
+}
+/* end contact */
+
+/* start payment  */
+.cart-container #btn-buy-now {
+  padding: 10px 20px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  float: right;
+  margin-top: 23px;
+}
+.container-All {
+  width: 70%;
+  display: none;
+  background: #eee;
+  padding: 10px;
+  margin: 10px;
+  margin: auto;
+}
+.container-All .contact {
+  margin-top: 20px;
+  margin: auto;
+  width: 80%;
+}
+.container-All {
+  text-align: center;
+}
+.container-All .contact #email-id {
+  width: 70%;
+  border: none;
+  border-radius: 5px;
+  border: 2px solid var(--primary-color);
+  margin: 10px;
+  padding: 10px;
+}
+.container-All #email {
+  padding: 5px;
+  margin-right: 5px;
+}
+
+.container-All .delivery {
+  margin: auto;
+  width: 80%;
+}
+.container-All .delivery #country {
+  width: 70%;
+  margin: 5px 0;
+  border: none;
+  border-radius: 5px;
+  border: 2px solid var(--primary-color);
+  padding: 10px;
+}
+.container-All .delivery .label-me {
+  font-size: large;
+  font-weight: 500;
+}
+.container-All .delivery .inp {
+  width: 40%;
+  border: none;
+  border-radius: 5px;
+  border: 2px solid var(--primary-color);
+  margin-bottom: 10px;
+  margin-right: 50px;
+  padding: 10px;
+}
+.container-All .delivery .inpAddress {
+  width: 40%;
+  border: none;
+  border-radius: 5px;
+  border: 2px solid var(--primary-color);
+  margin-bottom: 20px;
+  margin-right: 50px;
+  padding: 10px;
+}
+.container-All .delivery .phone {
+  width: 50%;
+  border: none;
+  border-radius: 5px;
+  border: 2px solid var(--primary-color);
+  margin-bottom: 20px;
+  padding: 10px;
+}
+.container-All .pay-title {
+  margin: auto;
+  width: 70%;
+}
+
+.container-All .payment-container {
+  margin: auto;
+  background-color: #eee;
+  padding: 20px;
+  width: 600px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container-All h2,
+h3 {
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.container-All .payment-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-All .form-group {
+  margin-bottom: 15px;
+}
+
+.container-All label {
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #333;
+}
+
+.container-All input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.container-All input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border-color: #119499;
+}
+
+.container-All .pay-now-btn {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.container-All .pay-now-btn:hover {
+  background-color: hsla(122, 75%, 20%, 0.899);
+}
+/* end payment */
