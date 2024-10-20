@@ -1,39 +1,3 @@
-
-document.querySelectorAll(".increase").forEach((button) => {
-  button.addEventListener("click", (event) => {
-    const quantitySpan = event.target.previousElementSibling;
-    let quantity = parseInt(quantitySpan.textContent, 10);
-    quantity++;
-    quantitySpan.textContent = quantity;
-  });
-});
-
-document.querySelectorAll(".decrease").forEach((button) => {
-  button.addEventListener("click", (event) => {
-    const quantitySpan = event.target.nextElementSibling;
-    let quantity = parseInt(quantitySpan.textContent, 10);
-    if (quantity > 0) {
-      quantity--;
-      quantitySpan.textContent = quantity;
-    }
-  });
-});
-
-const cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-document.querySelectorAll(".add-to-cart").forEach((button) => {
-  button.addEventListener("click", (event) => {
-    const productName = button.getAttribute("data-name");
-    const productPrice = parseFloat(button.getAttribute("data-price"));
-    cart.push({
-      name: productName,
-      price: productPrice,
-    });
-
-    localStorage.setItem("cart", JSON.stringify(cart));
-  });
-});
-
 // testimonials users
 fetch("js/testimonials.json")
   .then((result) => {
@@ -57,52 +21,6 @@ fetch("js/testimonials.json")
     }
   });
 
-////////////////////////////////////////////
-// contact page
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector("form");
-
-  form.addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent form from submitting the usual way
-    if (validateForm()) {
-      // Simulate sending the form data and show a success message
-      alert("Thank you! Your message has been sent successfully.");
-      form.reset(); // Reset the form after submission
-    }
-  });
-
-  function validateForm() {
-    let isValid = true;
-
-    const name = document.getElementById(".contact-banner name").value.trim();
-    const email = document.getElementById(".contact-banner email").value.trim();
-    const phone = document.getElementById(".contact-banner phone").value.trim();
-    const message = document.getElementById(".contact-banner message").value.trim();
-
-    // Simple validation checks
-    if (name === "") {
-      alert("Please enter your name.");
-      isValid = false;
-    } else if (!validateEmail(email)) {
-      alert("Please enter a valid email address.");
-      isValid = false;
-    } else if (phone === "") {
-      alert("Please enter your phone number.");
-      isValid = false;
-    } else if (message === "") {
-      alert("Please enter your message.");
-      isValid = false;
-    }
-
-    return isValid;
-  }
-
-  // Email validation regex
-  function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(String(email).toLowerCase());
-  }
-});
 // Get the button
 const backToTopBtn = document.getElementById("back-to-top-btn");
 
@@ -119,7 +37,6 @@ window.onscroll = function () {
 backToTopBtn.addEventListener("click", function () {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
-
 
 // all-products
 fetch("js/all-products.json")
@@ -151,42 +68,6 @@ fetch("js/all-products.json")
     }
   });
 
-// heart icon Adding ........*//*
-document.querySelectorAll(".wish-icon").forEach((heart, index) => {
-  const Favorite = JSON.parse(localStorage.getItem("Favorite")) || [];
-  const productName = heart.closest(".product").querySelector("h3").innerText;
-  if (Favorite.some((item) => item.name === productName)) {
-    heart.classList.add("clicked");
-  }
-
-  heart.addEventListener("click", function () {
-    this.classList.toggle("clicked");
-    let Favorite = JSON.parse(localStorage.getItem("Favorite")) || [];
-
-    // const product = this.closest('.product');
-    const productName = heart.closest(".product").querySelector("h3").innerText;
-    const productPrice = heart.closest(".product").querySelector(".price").innerText;
-    const productImg = heart.closest(".product").querySelector("img").src;
-    const productDes = heart.closest(".product").querySelector(".description").innerText;
-
-    if (this.classList.contains("clicked")) {
-      // Add to favorite
-      Favorite.push({
-        name: productName,
-        price: productPrice,
-        img: productImg,
-        desc: productDes,
-      });
-    } else {
-      // Remove from favorite
-      Favorite = Favorite.filter((item) => item.name !== productName);
-    }
-
-    // Save the updated favorite list to localStorage
-    localStorage.setItem("Favorite", JSON.stringify(Favorite));
-  });
-});
-
 fetch("js/popular-products.json")
   .then((result) => {
     let myData = result.json();
@@ -200,13 +81,17 @@ fetch("js/popular-products.json")
     let productTitle = document.querySelectorAll(
       ".popular-products .product .title"
     );
-    let productDesc= document.querySelectorAll(
+    let productDesc = document.querySelectorAll(
       ".popular-products .product .description"
     );
     let productPrice = document.querySelectorAll(
       ".popular-products .product .price"
     );
     for (p = 0; p < product.length; p++) {
+      product[p].setAttribute("data-id", products[p].id);
+      product[p].setAttribute("data-image", products[p].img);
+      product[p].setAttribute("data-name", products[p].title);
+      product[p].setAttribute("data-price", products[p].price);
       let image = productImg[p];
       let title = productTitle[p];
       let desc = productDesc[p];
@@ -217,3 +102,130 @@ fetch("js/popular-products.json")
       price.textContent += products[p].price;
     }
   });
+
+// cart
+// get required Elements in every page
+const cartCount = document.getElementById("cart-count");
+const favoritesCount = document.getElementById("favorite-count");
+const alertBox = document.getElementById("alert-box");
+const alertMessage = document.getElementById("alert-message");
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+// Display cart and favorites when the pages load
+document.addEventListener("DOMContentLoaded", () => {
+  if (document.getElementById("cart-items")) {
+    displayCart(); // Load cart data on the cart page
+  }
+  if (document.getElementById("FavoriteContainer")) {
+    displayFavorites(); // Load favorites data on the favorites page
+  }
+});
+// Update the number of products in the cart and favorites when the page loads.
+updateCartCount();
+updateFavoritesCount();
+
+//  dd the product to the shopping cart
+function addToCart(product) {
+  // Check if the product already exists in the cart.
+  const exists = cart.some((item) => item.id === product.id);
+  if (exists) {
+    showAlert("Product already in cart!", "error");
+    return; // If it already exists, show a message and stop.
+  }
+  product.quantity = 1;
+  cart.push(product);
+  updateCartCount();
+  saveCartToLocalStorage();
+  showAlert("Product added to cart successfully!", "success");
+}
+
+// Add the product to the favorites list
+function addToFavorites(product) {
+  // Check if the product already exists in the favorites list.
+  const exists = favorites.some((item) => item.id === product.id);
+  if (exists) {
+    showAlert("Product already in favorites!", "error");
+    return; // If it already exists, show a message and stop.
+  }
+
+  favorites.push(product);
+  updateFavoritesCount();
+  saveFavoritesToLocalStorage();
+  showAlert("Product added to favorites successfully!", "success");
+}
+
+// Remove the product from the shopping cart.
+function removeFromCart(productId) {
+  cart = cart.filter((product) => product.id !== productId);
+  updateCartCount();
+  saveCartToLocalStorage();
+  showAlert("Product removed from cart", "success");
+}
+//  Remove the product from the favorites list.
+function removeFromFavorites(productId) {
+  favorites = favorites.filter((product) => product.id !== productId);
+  updateFavoritesCount();
+  saveFavoritesToLocalStorage();
+  showAlert("Product removed from favorites", "success");
+}
+//  Update the number of products in the cart.
+function updateCartCount() {
+  cartCount.textContent = cart.length;
+}
+
+//  Update the number of products in the favorites list.
+function updateFavoritesCount() {
+  favoritesCount.textContent = favorites.length;
+}
+// Fetch product information from the card.
+function getProductInfo(productCard) {
+  const id = productCard.getAttribute("data-id");
+  const name = productCard.getAttribute("data-name");
+  const price = productCard.getAttribute("data-price");
+  const image = productCard.getAttribute("data-image");
+  const description = productCard.getAttribute("data-desc");
+  return { id, name, price, image, description };
+}
+// Handle button clicks on each page
+document.querySelectorAll(".product").forEach((card) => {
+  const addToCartButton = card.querySelector(".add-to-cart");
+  const addToFavoritesButton = card.querySelector(".add-to-favorites");
+  addToCartButton.addEventListener("click", () => {
+    const product = getProductInfo(card);
+    addToCart(product);
+  });
+
+  addToFavoritesButton.addEventListener("click", () => {
+    const product = getProductInfo(card);
+    addToFavorites(product);
+  });
+});
+
+// Store the shopping cart in localStorage.
+function saveCartToLocalStorage() {
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+// Store the shopping favorites in localStorage.
+function saveFavoritesToLocalStorage() {
+  localStorage.setItem("favorites", JSON.stringify(favorites));
+}
+// Function to display an alert
+function showAlert(message, type) {
+  // Customize the alert color based on the message type (success or error)
+  if (type === "success") {
+    alertBox.style.backgroundColor = "lightgreen";
+  } else if (type === "error") {
+    alertBox.style.backgroundColor = "lightcoral";
+  }
+
+  alertMessage.textContent = message; // Set the message.
+  alertBox.style.display = "block"; // Show the alert box
+
+  //Hide the alert after 3 seconds.
+  setTimeout(() => {
+    alertBox.style.display = "none";
+  }, 3000);
+}
