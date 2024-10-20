@@ -64,6 +64,7 @@
               <a class="wish position-relative" href="wish.html"
                 ><i class="fa-solid fa-heart"></i>
                 <span
+                  id="favorite-count"
                   class="position-absolute wish-badge top-0 start-100 translate-middle badge rounded-pill bg-danger"
                 >
                   0
@@ -72,6 +73,7 @@
               <a class="cart position-relative" href="cart.html"
                 ><i class="fa-solid fa-cart-shopping"></i>
                 <span
+                  id="cart-count"
                   class="position-absolute cart-badge top-0 start-100 translate-middle badge rounded-pill bg-danger"
                 >
                   0
@@ -344,6 +346,23 @@
     <!-- end categories -->
     <!-- start popular products -->
     <div class="popular-products">
+      <!-- عنصر لعرض التنبيهات للمستخدم -->
+      <div
+        id="alert-box"
+        style="
+          display: none;
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: rgb(5, 171, 190);
+          padding: 10px;
+          border-radius: 5px;
+          z-index: 9999;
+        "
+      >
+        <span id="alert-message"></span>
+      </div>
       <h1 class="title-page my-5 fw-bold" id="popular-products">
         Popular Products
       </h1>
@@ -358,7 +377,9 @@
               class="product position-relative"
               style="background-color: #b9e7fc"
             >
-              <span class="wish-icon"><i class="fa-solid fa-heart"></i></span>
+              <button class="add-to-favorites">
+                <i class="fa-solid fa-heart"></i>
+              </button>
               <img
                 src="./"
                 alt="Product 1"
@@ -375,8 +396,9 @@
           <!-- Product 2 -->
           <div class="swiper-slide">
             <div class="product swiper-slide" style="background-color: #dad4f9">
-              <span class="wish-icon"><i class="fa-solid fa-heart"></i></span>
-
+              <button class="add-to-favorites">
+                <i class="fa-solid fa-heart"></i>
+              </button>
               <img
                 src="./"
                 alt="Product 2"
@@ -395,8 +417,9 @@
           <!-- Product 3 -->
           <div class="swiper-slide">
             <div class="product swiper-slide" style="background-color: #f9e6d0">
-              <span class="wish-icon"><i class="fa-solid fa-heart"></i></span>
-
+              <button class="add-to-favorites">
+                <i class="fa-solid fa-heart"></i>
+              </button>
               <img
                 src="./"
                 alt="Product3"
@@ -405,17 +428,16 @@
               <h3 class="text-start title"></h3>
               <p class="text-start description"></p>
               <span class="price text-start"></span>
-              <button class="add-to-cart" data-name="Product 3" data-price="40">
-                Add to Cart
-              </button>
+              <button class="add-to-cart">Add to Cart</button>
             </div>
           </div>
 
           <!-- Product 4 -->
           <div class="swiper-slide">
             <div class="product swiper-slide" style="background-color: #c0f3e2">
-              <span class="wish-icon"><i class="fa-solid fa-heart"></i></span>
-
+              <button class="add-to-favorites">
+                <i class="fa-solid fa-heart"></i>
+              </button>
               <img
                 src="./"
                 alt="Product 4"
@@ -425,17 +447,16 @@
               <p class="text-start description"></p>
               <span class="price text-start"></span>
 
-              <button class="add-to-cart" data-name="Product 4" data-price="50">
-                Add to Cart
-              </button>
+              <button class="add-to-cart">Add to Cart</button>
             </div>
           </div>
 
           <!-- Product 5 -->
           <div class="swiper-slide">
             <div class="product swiper-slide" style="background-color: #b9e7fc">
-              <span class="wish-icon"><i class="fa-solid fa-heart"></i></span>
-
+              <button class="add-to-favorites">
+                <i class="fa-solid fa-heart"></i>
+              </button>
               <img
                 src="./"
                 alt="Product 5"
@@ -445,24 +466,21 @@
               <p class="text-start description"></p>
               <span class="price text-start"></span>
 
-              <button class="add-to-cart" data-name="Product 5" data-price="60">
-                Add to Cart
-              </button>
+              <button class="add-to-cart">Add to Cart</button>
             </div>
           </div>
 
           <!-- Product 6 -->
           <div class="product swiper-slide" style="background-color: #dad4f9">
-            <span class="wish-icon"><i class="fa-solid fa-heart"></i></span>
-
+            <button class="add-to-favorites">
+              <i class="fa-solid fa-heart"></i>
+            </button>
             <img src="./" alt="Product 6" style="width: 150px; height: 150px" />
             <h3 class="text-start title"></h3>
             <p class="text-start description"></p>
             <span class="price text-start"></span>
 
-            <button class="add-to-cart" data-name="Product 6" data-price="70">
-              Add to Cart
-            </button>
+            <button class="add-to-cart">Add to Cart</button>
           </div>
         </div>
         <div class="swiper-button-next d-none d-md-block">
@@ -504,7 +522,10 @@
                 <div class="swiper-slide">
                   <div class="card">
                     <div class="image">
-                      <img src="images/own-creation/own-creation.jpg" alt="own01" />
+                      <img
+                        src="images/own-creation/own-creation.jpg"
+                        alt="own01"
+                      />
                     </div>
                     <div class="explore">
                       <a
@@ -518,7 +539,10 @@
                 <div class="swiper-slide">
                   <div class="card">
                     <div class="image">
-                      <img src="images/own-creation/own-creation2.jpg" alt="own02" />
+                      <img
+                        src="images/own-creation/own-creation2.jpg"
+                        alt="own02"
+                      />
                     </div>
                     <div class="explore">
                       <a
@@ -532,7 +556,10 @@
                 <div class="swiper-slide">
                   <div class="card">
                     <div class="image">
-                      <img src="images/own-creation/own-creation.jpg" alt="own03" />
+                      <img
+                        src="images/own-creation/own-creation.jpg"
+                        alt="own03"
+                      />
                     </div>
                     <div class="explore">
                       <a
@@ -546,7 +573,10 @@
                 <div class="swiper-slide">
                   <div class="card">
                     <div class="image">
-                      <img src="images/own-creation/own-creation2.jpg" alt="own04" />
+                      <img
+                        src="images/own-creation/own-creation2.jpg"
+                        alt="own04"
+                      />
                     </div>
                     <div class="explore">
                       <a
@@ -560,7 +590,10 @@
                 <div class="swiper-slide">
                   <div class="card">
                     <div class="image">
-                      <img src="images/own-creation/own-creation.jpg" alt="own05" />
+                      <img
+                        src="images/own-creation/own-creation.jpg"
+                        alt="own05"
+                      />
                     </div>
                     <div class="explore">
                       <a
@@ -574,7 +607,10 @@
                 <div class="swiper-slide">
                   <div class="card">
                     <div class="image">
-                      <img src="images/own-creation/own-creation.jpg" alt="own06" />
+                      <img
+                        src="images/own-creation/own-creation.jpg"
+                        alt="own06"
+                      />
                     </div>
                     <div class="explore">
                       <a
