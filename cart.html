@@ -15,6 +15,8 @@
     <title>Cart</title>
   </head>
   <body>
+    <div class="alert alert-danger" id="alert"></div>
+
     <div class="socials py-2">
       <div class="container d-flex justify-content-between align-items-center">
         <div class="icons d-flex justify-content-between align-items-center">
@@ -58,6 +60,7 @@
           <a class="wish position-relative" href="wish.html"
             ><i class="fa-solid fa-heart"></i>
             <span
+              id="favorite-count"
               class="position-absolute wish-badge top-0 start-100 translate-middle badge rounded-pill bg-danger"
             >
               0
@@ -66,6 +69,7 @@
           <a class="cart position-relative" href="cart.html"
             ><i class="fa-solid fa-cart-shopping"></i>
             <span
+              id="cart-count"
               class="position-absolute cart-badge top-0 start-100 translate-middle badge rounded-pill bg-danger"
             >
               0
@@ -180,9 +184,11 @@
           <thead>
             <tr>
               <th>Product</th>
+              <th>Name</th>
               <th>Price</th>
               <th>Quantity</th>
               <th>Total</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody id="cart-items">
@@ -190,10 +196,144 @@
           </tbody>
         </table>
         <div class="total-cost">
-          Total Cost: $<span id="total-cost">0.00</span>
+          Total Cost: $<span id="total-amount">0.00</span>
         </div>
         <a href="index.html" class="back-to-shop">Back to Shop</a>
-        <button onclick="clearFields()">Clear</button>
+        <button class="btn btn-secondary" id="btn-buy-now">Buy Now</button>
+      </div>
+    </div>
+    <!-- the payment page -->
+    <div class="container-All">
+      <div class="contact col-md-3">
+        <form action="" class="form-check">
+          <input
+            type="email"
+            id="email-id"
+            placeholder="Enter Your Email"
+            onkeyup="ValidateName()"
+            required
+          /><br />
+
+          <input type="checkbox" id="email" />
+          <label for="email" class="label-me"
+            >Email me with news and offers</label
+          >
+
+          <div class="delivery">
+            <h3>Delivery</h3>
+            <select name="country" id="country">
+              <option value="selected">Country</option>
+              <option value="">Egypt</option>
+              <option value="">Sudan</option>
+              <option value="">Iraq</option>
+              <option value="">Palastine</option>
+              <option value="">Yaman</option></select
+            ><br />
+
+            <input
+              type="text"
+              class="inp-fname"
+              placeholder="First Name"
+              required
+            />
+            <input
+              type="text"
+              class="inp-lname"
+              placeholder="Last Name"
+              required
+            />
+            <input type="text" class="inpAddress" placeholder="Address" />
+            <input type="text" class="inpAddress" placeholder="City" />
+            <input
+              type="number"
+              name="phone"
+              class="phone"
+              placeholder="phone"
+              required
+            /><br />
+            <input type="checkbox" id="save-info" />
+            <label for="save-info" class="label-me"
+              >Save this information for next time</label
+            >
+          </div>
+          <br />
+          <input
+            type="submit"
+            class="btn btn-success w-25 d-inline m-auto"
+            value="Save"
+          />
+        </form>
+
+        <div class="payment-container col-md-4">
+          <h2>Payment Details</h2>
+          <p class="normal-p">All transactions are secure and encrypted.</p>
+          <form action="#" method="POST" class="payment-form">
+            <!-- Card Information -->
+            <div class="form-group">
+              <label for="cardholder-name">Card holder Name</label>
+              <input
+                type="text"
+                id="cardholder-name"
+                name="cardholder_name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="card-number">Card Number</label>
+              <input
+                type="text"
+                id="card-number"
+                name="card_number"
+                placeholder="1234 5678 9012 3456"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="expiry-date">Expiry Date</label>
+              <input
+                type="text"
+                id="expiry-date"
+                name="expiry_date"
+                placeholder="MM/YY"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="cvv">CVV</label>
+              <input
+                type="password"
+                id="cvv"
+                name="cvv"
+                placeholder="123"
+                required
+              />
+            </div>
+
+            <!-- Billing Information -->
+            <h3>Billing Information</h3>
+
+            <div class="form-group">
+              <label for="address">Billing Address</label>
+              <input type="text" id="address" name="address" required />
+            </div>
+
+            <div class="form-group">
+              <label for="city">City</label>
+              <input type="text" id="city" name="city" required />
+            </div>
+
+            <div class="form-group">
+              <label for="zip">ZIP/Postal Code</label>
+              <input type="text" id="zip" name="zip" required />
+            </div>
+
+            <!-- Payment Button -->
+            <button type="submit" class="pay-now-btn">Pay Now</button>
+          </form>
+        </div>
       </div>
     </div>
 
@@ -298,40 +438,10 @@
       </div>
     </div>
     <!-- end footer -->
-    <script>
-      // Fetch the cart from localStorage
-      const cartData = JSON.parse(localStorage.getItem("cart")) || [];
-      function renderCart() {
-        const cartItemsContainer = document.getElementById("cart-items");
-        const totalCostElement = document.getElementById("total-cost");
-        cartItemsContainer.innerHTML = ""; // Clear existing content
-        let totalCost = 0;
-        cartData.forEach((item) => {
-          const itemTotal = item.price * item.quantity;
-          totalCost += itemTotal;
-          const row = document.createElement("tr");
-          row.innerHTML = `
-        <td>${item.name}</td>
-        <td>$${item.price.toFixed(2)}</td>
-        <td>${item.quantity}</td>
-        <td>$${itemTotal.toFixed(2)}</td>
-      `;
-          cartItemsContainer.appendChild(row);
-        });
-        totalCostElement.textContent = totalCost.toFixed(2);
-      }
-      function clearFields() {
-        // Clear the cart from localStorage
-        localStorage.removeItem("cart");
-        // Clear the cart display
-        document.getElementById("cart-items").innerHTML = "";
-        document.getElementById("total-cost").textContent = "0.00";
-      }
-      // Render the cart when the page loads
-      renderCart();
-    </script>
+    <script></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/all.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/cartjs.js"></script>
   </body>
 </html>
