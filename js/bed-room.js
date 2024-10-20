@@ -8,16 +8,20 @@ fetch("js/all-products.json")
 
 function displayProducts(products, bedrooms) {
   const productsDiv = document.getElementById(bedrooms);
-  console.log(productsDiv);
   products.forEach((product) => {
     const productDiv = document.createElement("div");
     productDiv.classList.add("col-12", "col-md-6", "col-lg-4");
-
-    productDiv.innerHTML = `
-        <div class="product card">
+    const productCard = document.createElement("div");
+    productCard.classList.add("product");
+    productDiv.appendChild(productCard);
+    productCard.setAttribute("data-id", product.id);
+    productCard.setAttribute("data-name", product.title);
+    productCard.setAttribute("data-price", product.price);
+    productCard.setAttribute("data-image", product.img);
+    productCard.setAttribute("data-description", product.desc);
+    productCard.innerHTML = `
           <span class="discount">${product.disc}</span>
-          <span class="wish-icon"><i class="fa-solid fa-heart"></i></span>
-          <div class="image">
+          <button class="add-to-favorites"><i class="fa-solid fa-heart"></i></button>          <div class="image">
             <a href="#">
               <img class="img-fluid" src="${product.img}" alt="${product.title}" />
             </a>
@@ -29,10 +33,19 @@ function displayProducts(products, bedrooms) {
             </div>
             <button class="add-to-cart">
             <i class="fa-solid fa-cart-shopping"></i></button>
-          </div>
         </div>
       `;
 
     productsDiv.appendChild(productDiv);
+
+    // Attach event listeners
+    productCard
+      .querySelector(".add-to-cart")
+      .addEventListener("click", () => addToCart(getProductInfo(productCard)));
+    productCard
+      .querySelector(".add-to-favorites")
+      .addEventListener("click", () =>
+        addToFavorites(getProductInfo(productCard))
+      );
   });
 }
